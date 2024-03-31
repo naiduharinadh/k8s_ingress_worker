@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-alb-nodeapp
+  annotations:
+    kubernetes.io/ingress.class: "alb"
+    alb.ingress.kubernetes.io/scheme: "internet-facing" # or "internal" for internal ALB
+    alb.ingress.kubernetes.io/target-type: "ip" # or "instance" for EC2 instance targets
+spec:
+  rules:
+    - host: k8s-default-httpdweb-312d62ba8a-d0785501f06f5d3f.elb.ap-southeast-2.amazonaws.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: node-webapp-service 
+                port:
+                  number: 80
