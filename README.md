@@ -1,4 +1,5 @@
 refer this document to setup the ingress controler node " https://docs.aws.amazon.com/eks/latest/userguide/lbc-helm.html " <br />
+**note:**  use the helm-3.14+ <br />
 launch the deployment-pods and services to connect with the ingress controller <br />
 create ingressclass using the ALB/NLB/ELB/CLB <br />
 use the ingressclass name to edit the annotation rules and setup the routes/path to  the services. using the ingress.yml <br />
